@@ -174,6 +174,8 @@ TOTAL 6 hrs 3 hrs TBD
 
 ## Database
 
+![WIRE1]("https://i.imgur.com/prNryrx.png")
+
 1.User----(username, password)
 2.Booking---(Reservation, Reservation_Id, Hotel_Id, CheckIn, CheckOut, Guests_number)
 3.Hotels---(Hotel_id, Room_Type, Location, Room_Id)
