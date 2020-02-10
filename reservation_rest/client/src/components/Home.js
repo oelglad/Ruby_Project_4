@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import HotelCarousel from './Carousel';
 
 
 class Home extends Component {
@@ -11,13 +11,12 @@ class Home extends Component {
   }
   render() {
     return (
-      <div className="homeImg">
-     
-       
-    
-      </div>
-      
+        <div>
+            <HotelCarousel />
+        </div>
+        
     );
   }
 }
+
 export default Home;

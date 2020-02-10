@@ -6,7 +6,7 @@
 - Tayran 
 
 ---
-
+## MVP
 
 ## Project Planning
 
@@ -15,11 +15,10 @@
 
 ---
 
-## MVP
 
-My application is a client based system that adding the visibility of booking to the client interested area, my goal is to create a web-site to manange the customer accounts to be able to search and book their hotels within their interested area.
-To extend the spectrum of usability, our application will provide job visibility to all users (registered or not) 
-allow registered users to book unique places to stay and things to do. 
+My application is a client based system that adding the visibility of booking to the client's interested area, my goal is to create a web-site to manange the customer accounts to be able to search and book their hotels within their interested area.
+To extend the spectrum of usability, my application will provide visibility to all users (registered or not) 
+for unique places to stay and things to do. 
 
 
 User ===> has many booking(reservation) ===>has many hotels ===> hotels has many rooms
@@ -38,7 +37,7 @@ Furhtermore,  have the ability to do the following:
 - Hotel reviews
 
 
-Server (Back End)
+## Server (Back End)
 
 Have a Ruby-RESTful JSON API
 Build a Ruby on Rails server, exposing RESTful JSON endpoints.
@@ -56,7 +55,7 @@ I'll Implement working generic controller actions for full-CRUD
 
 ---
 
-## Features
+## Features (MVP Goals)
 
 Tayran user will be made up of the following features:
 
@@ -139,7 +138,7 @@ TOTAL 6 hrs 3 hrs TBD
 
 ---
 
-## Back End
+## Back End (MVP Libraries)
 
 1.models.js----create four tables(user, booking, hotels, rooms )
 1.app(
@@ -193,6 +192,6 @@ TOTAL 6 hrs 3 hrs TBD
 
 - TimeLine ======> 8 days
 - Teammates ======> Omnia
-- Practices ======> build the contents of the project and design to build out the web application.
+- Practices ======> build the contents of the project and       design to build out the web application.
 
 ---
