@@ -14,12 +14,19 @@ class App extends Component {
       email: "",
       password: "",
       currentUser: null,
+      reservations:[],
       errorText: ""
     }
   }
   handleRegister = async (e,  registerData) => {
     e.preventDefault();
     const currentUser = await registerUser(registerData);
+  if (!currentUser.errorMessage){
+    this.setState({ currentUser});
+    this.props.history.push('/reservations');
+  } else {
+    this.setState({errorText: currentUser.errorMessage})
+  }
   }
   render(){
   return (
