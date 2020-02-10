@@ -17,6 +17,9 @@ import { Carousel } from 'react-responsive-carousel';
         <div className="carousel-img">
           <img src="https://i.imgur.com/KVU0vm0.jpg" alt="hotel2" />
         </div>
+        <div className="carousel-img">
+          <img src="https://i.imgur.com/JUrPJiF.jpg" alt="hotel3" />
+        </div> 
       </Carousel>
     );
   }

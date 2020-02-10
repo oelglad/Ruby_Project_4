@@ -1,7 +1,7 @@
 class User < ApplicationRecord
      # encrypt password
     has_secure_password
-    has_many :reservation, foreign_key: :created_by
+    has_many :reservations, foreign_key: :created_by
     # Validations
     validates :name, presence: true
     validates :email, uniqueness: true, presence: true
