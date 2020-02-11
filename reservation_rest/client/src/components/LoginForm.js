@@ -29,7 +29,7 @@ export default class LoginForm extends Component {
                     value={this.state.email}
                     onChange={this.handleChange}
                 />
-                <label htmlfor="password">password</label>
+                <label htmlfor="password">Password</label>
                 <input
                     type="password"
                     name="password"
@@ -37,7 +37,7 @@ export default class LoginForm extends Component {
                     onChange={this.handleChange}
                 />
                 <button>Submit</button>
-                <Link to="/Sign_UP">Sign-Up</Link>
+                <Link to="/signup">Sign-Up</Link>
             </form>
            
         )
