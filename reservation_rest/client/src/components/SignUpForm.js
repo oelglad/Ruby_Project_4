@@ -13,7 +13,6 @@ export default class SignUpForm extends Component {
     }
     handleChange = (e) => {
         const { name, value } = e.target;
-        //same as const name = e.target.name // const value = e.target.value
         this.setState({
           [name]: value
         })
@@ -24,7 +23,7 @@ export default class SignUpForm extends Component {
             <div>
                 {this.props.errorText && <p>{this.props.errorText}</p>}
             <form className="Form" onSubmit={(e) => this.props.handleRegister(e, this.state)}>
-                <h2>Sign_UP!</h2>
+                <h2>Sign UP!</h2>
                 <label htmlfor="name">name</label>
                 <input
                     type="text"
