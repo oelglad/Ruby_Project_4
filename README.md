@@ -21,7 +21,7 @@ To extend the spectrum of usability, my application will provide visibility to a
 for unique places to stay and things to do. 
 
 
-User ===> has many booking(reservation) ===>has many hotels ===> hotels has many rooms
+User ===> has many booking(reservation) ===>belongs_ to hotels
 
 
 Furhtermore,  have the ability to do the following:
@@ -41,11 +41,11 @@ Furhtermore,  have the ability to do the following:
 
 Have a Ruby-RESTful JSON API
 Build a Ruby on Rails server, exposing RESTful JSON endpoints.
-Build a database with 4 tables:
+Build a database with 3 tables:
 1 user table
 2 Reservation table
 3 Hotels table
-4 Rooms table
+
 
 User ===> has many booking(reservation) ===>has many hotels ===> hotels has many rooms
 
@@ -152,7 +152,6 @@ TOTAL 6 hrs 3 hrs TBD
       1.2.3 authentication_controller.rb
       1.2.4 reservations_controller.rb 
       1.2.5 hotels_controller.rb 
-      1.2.6 rooms_controller.rb 
       1.2.7 users_controller.rb 
 
 
@@ -163,7 +162,6 @@ TOTAL 6 hrs 3 hrs TBD
     1.4 models
       1.4.1 reservations.rb 
       1.4.2 hotels.rb 
-      1.4.3 rooms.rb 
       1.4.4 users.rb 
 
 2.db(migrate, schema.rb, seeds.rb)
@@ -180,7 +178,7 @@ TOTAL 6 hrs 3 hrs TBD
 1.User----(username, password)
 2.Booking---(Reservation, Reservation_Id, Hotel_Id, CheckIn, CheckOut, Guests_number)
 3.Hotels---(Hotel_id, Room_Type, Location, Room_Id)
-4.Rooms ----(Room_Id, Room_Type, Price)
+
 
 ---
 
