@@ -28,7 +28,7 @@ export const loginUser = async (loginData) => {
         return resp.data.user;
       }catch (e) {
         console.log(e.response);
-        if (e.response.status === 422) {
+        if (e.respose.status === 422) {
           return {errorMessage: "Email is already associated with a user, please login to continue"}
         }
       }
