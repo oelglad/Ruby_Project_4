@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-    resources :reservations
+    resources :reservations do
     resources :hotels
-    resources :rooms
+    end
   
   post 'auth/login', to: 'authentication#authenticate'
   # post'login', to:
