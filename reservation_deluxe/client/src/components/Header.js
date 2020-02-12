@@ -37,14 +37,14 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
-        {this.state.currentUser ?
+        {/* {this.state.currentUser ?
           <div>
             <h1>Hello, {this.state.currentUser.name}</h1>
             <button onClick={this.props.handleLogout}>Logout</button>
         </div>   
         :
         <div></div>
-  }
+  } */}
         <nav>
           <div>
             <ul>

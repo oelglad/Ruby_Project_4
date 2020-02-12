@@ -25,9 +25,10 @@ class App extends Component {
   handleRegister = async (e,  registerData) => {
     e.preventDefault();
     const currentUser = await registerUser(registerData);
+    console.log(currentUser)
   if (!currentUser.errorMessage){
     this.setState({ currentUser});
-     this.props.history.push('/reservations');
+    this.props.history.push('/reservations');
   } else {
     this.setState({errorText: currentUser.errorMessage})
   }

@@ -47,7 +47,7 @@ Build a database with 3 tables:
 3 Hotels table
 
 
-User ===> has many booking(reservation) ===>has many hotels ===> hotels has many rooms
+User ===> has many hotels(reservation) ===> hotels has many reservations
 
 I'll Implement Authentication using JWT.
 I'll Implement working generic controller actions for full-CRUD 
@@ -172,7 +172,7 @@ TOTAL 6 hrs 3 hrs TBD
 
 ## Database
 
-![WIRE4](https://i.imgur.com/prNryrx.png)
+![WIRE4](https://i.imgur.com/zDCJeRs.png)
 
 
 1.User----(username, password)

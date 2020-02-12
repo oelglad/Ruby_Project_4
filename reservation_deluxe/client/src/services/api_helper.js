@@ -10,8 +10,8 @@ export const loginUser = async (loginData) => {
     console.log(resp);
     api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
     localStorage.setItem('authToken', resp.data.auth_token);
-    localStorage.setItem('name', resp.data.user.name);
-    localStorage.setItem('email', resp.data.user.email);
+    // localStorage.setItem('name', resp.data.user.name);
+    // localStorage.setItem('email', resp.data.user.email);
     return resp.data.user;
   }
 
@@ -19,19 +19,19 @@ export const loginUser = async (loginData) => {
   //Register
 
   export const registerUser = async(registerData) => {
-      try{
+      // try{
         const resp = await api.post('/signup', registerData);
         api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
         localStorage.setItem('authToken', resp.data.auth_token);
         localStorage.setItem('name', resp.data.user.name);
         localStorage.setItem('email', resp.data.user.email);
         return resp.data.user;
-      }catch (e) {
-        console.log(e.response);
-        if (e.respose.status === 422) {
-          return {errorMessage: "Email is already associated with a user, please login to continue"}
-        }
-      }
+      // }catch (e) {
+      //   console.log(e.response);
+      //   if (e.respose.status === 422) {
+      //     return {errorMessage: "Email is already associated with a user, please login to continue"}
+      //   }
+      // }
   }
 
   //Verify user
