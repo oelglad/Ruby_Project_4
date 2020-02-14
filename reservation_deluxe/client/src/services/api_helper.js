@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 const api = axios.create({
     baseURL: "http://localhost:3000"
 })
@@ -42,22 +43,44 @@ export const loginUser = async (loginData) => {
     }
   }
 
+    // Get All hotels
+    export const indexHotels = async () => {
+      const resp = await api.get('/hotels');  
+      // console.log(resp)
+      return resp.data;
+    }
+    
+    //Hotels
+    //POST hotel
+    export const postHotel = async (postData) => {
+      const resp = await api.post('/hotels', postData);
+      return resp.data;
+    }
+    
+    // UPDATE hotel
+    export const putHotel= async (id, postData) => {
+      const resp = await api.put(`/hotels/${id}`, postData);
+      const hotel = {id: id, hotel_name: resp.data.data}
+      return hotel;
+    }
+
   //Reservations
   // Get All reservations
-  export const indexReservations = async () => {
-    const resp = await api.get('/reservations');
+  export const indexReservations = async (id) => {
+    const resp = await api.get(`/hotels/${id}/reservations`);
+    console.log(resp.data);
     return resp.data;
   }
   
   //POST reservation
-  export const postReservation = async (postData) => {
-    const resp = await api.post('/reservations', postData);
+  export const postReservation = async (id, postData) => {
+    const resp = await api.post(`/hotels/${id}/reservations`, postData);
     return resp.data;
   }
   
   // UPDATE reservation
   export const putReservation= async (id, postData) => {
-    const resp = await api.put(`/reservations/${id}`, postData);
+    const resp = await api.put(`/hotels/${id}/reservations/${id}`, postData);
     const reservation = {id: id, reservation_desc: resp.data.data}
     return reservation;
   }
