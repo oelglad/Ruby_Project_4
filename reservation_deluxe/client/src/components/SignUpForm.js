@@ -22,7 +22,7 @@ export default class SignUpForm extends Component {
         return (
             <div>
                 {this.props.errorText && <p>{this.props.errorText}</p>}
-                <form className="Form" onSubmit={(e) => this.props.handleRegister(e, this.state)}>
+                <form className="SignForm" onSubmit={(e) => this.props.handleRegister(e, this.state)}>
                     <h2>SignUP</h2>
                     <label htmlfor="name">name</label>
                     <input
