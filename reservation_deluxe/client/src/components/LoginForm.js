@@ -20,7 +20,7 @@ export default class LoginForm extends Component {
 
     render() {
         return (
-            <form  onSubmit={(e) => this.props.handleLogin(e, this.state)}>
+            <form  className="LoginForm" onSubmit={(e) => this.props.handleLogin(e, this.state)}>
                 <h2>Login</h2>
                 <label htmlfor="email">email</label>
                 <input
