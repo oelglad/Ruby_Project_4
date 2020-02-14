@@ -48,10 +48,10 @@ class Header extends Component {
         <nav>
           <div>
             <ul>
-              <li className="left"><Link to="/Home">Home</Link></li>
-              <li className="left"><Link to="/Reservation">Reservation</Link></li>
-              <li className="left"><Link to="/Overview">Overview</Link></li>
-
+              <li className="left"><Link to="/home">Home</Link></li>
+              <li className="left"><Link to="/hotels/:id/reservations">Reservation</Link></li>
+              <li className="left"><Link to="/overview">Overview</Link></li>
+              <li className="left"><Link to="/hotels">Hotels</Link></li>
               {/* {this.props.currentUser ? (
                 <div>
                   <Link to="/reservation">Reservation</Link>
