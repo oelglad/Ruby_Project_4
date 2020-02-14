@@ -5,7 +5,10 @@ import Home from './components/Home';
 import Header from './components/Header';
 import LoginForm from './components/LoginForm';
 import Overview  from './components/Overview';
-import Reservation from './components/reservationContainer';
+import Reservation from './components/ReservationContainer';
+import ReservationContainer from './components/ReservationContainer';
+import HotelContainer from './components/HotelsContainer';
+// import HotelCarousel from './components/Carousel';
 import './App.css';
 import SignUpForm from './components/SignUpForm';
 
@@ -17,7 +20,6 @@ class App extends Component {
       email: "",
       password: "",
       currentUser: null,
-      reservations:[],
       errorText: ""
     }
   }
@@ -28,7 +30,7 @@ class App extends Component {
     console.log(currentUser)
   if (!currentUser.errorMessage){
     this.setState({ currentUser});
-    this.props.history.push('/reservations');
+    // this.props.history.push('/reservations');
   } else {
     this.setState({errorText: currentUser.errorMessage})
   }
@@ -38,7 +40,7 @@ class App extends Component {
     e.preventDefault();
     const currentUser = await loginUser(loginData);
     this.setState({ currentUser });
-    this.props.history.push('/reservations');
+    // this.props.history.push('/reservations');
   }
 
   handleLogout = () => {
@@ -71,8 +73,7 @@ class App extends Component {
           </div>
           :
           <nav>
-            <Link to="/signup"><button>SignUp</button></Link>
-            <Link to="/login"><button>Login</button></Link>
+            <Link to="/signup">SignUp</Link>
           </nav>
         }
         <Route path="/login" render={() => (
@@ -91,9 +92,12 @@ class App extends Component {
          handleLogout={this.handleLogout}
          handleLogin={this.handleLogin}
          />
-        <Route path="/overview" render={() => <Overview />} />
-        <Route path="/reservation"  render={() => <Reservation />} />
-     <Home />
+        <Route path="/overview" render={() => (<Overview />)} />
+        <Route path="/reservation"  render={() => (<ReservationContainer />)} />
+        <Route path="/hotels" render={() => (<HotelContainer />)} />
+        {/* <Route path="/hotels" render={() => (<ReservationContainer />)} /> */}
+        <Route path="/hotels" render={() => (<Home />)} />
+        {/* <HotelCarousel />  */}
 
     </div>
   );
