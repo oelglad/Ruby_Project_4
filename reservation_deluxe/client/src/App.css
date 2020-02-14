@@ -1,6 +1,14 @@
 .App {
   text-align: center;
 }
+.LoginForm{
+  display:flex;
+  flex-direction: column;
+}
+.SignForm{
+  display:flex;
+  flex-direction: column;
+}
 .carousel img {
   margin: 60px;
   height: 40vh;
@@ -15,19 +23,16 @@
   height: 12vh;
   margin: 0;
 }
-.header-nav {
+/* .header-nav {
   z-index: 6;
-}
+} */
 nav {
   display: flex;
   justify-content: space-between;
   color: white;
   flex-flow: row nowrap;
-  justify-content: space-evenly;
   /* background-color: rgba(0,0,0,0.7); */
-  position: fixed;
   width: calc(120vw - 60px);
-  color: white;
   
 }
 .left{
