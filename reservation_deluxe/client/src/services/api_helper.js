@@ -74,13 +74,29 @@ export const loginUser = async (loginData) => {
   
   //POST reservation
   export const postReservation = async (id, postData) => {
+    console.log(id);
+    console.log(postData);
     const resp = await api.post(`/hotels/${id}/reservations`, postData);
+    console.log(resp.data);
     return resp.data;
   }
   
   // UPDATE reservation
-  export const putReservation= async (id, postData) => {
-    const resp = await api.put(`/hotels/${id}/reservations/${id}`, postData);
-    const reservation = {id: id, reservation_desc: resp.data.data}
-    return reservation;
+  export const putReservation= async ( hotId ,resId,  postData) => {
+   
+    const resp = await api.put(`/hotels/${hotId }/reservations/${resId}/`, postData);
+    // const reservation = {resId: id, reservation_desc: resp.data.data}
+    console.log(resp.data);
+    // return reservation;
+    // return resp.data;
+    return resp.data
   }
+
+    //Deletereservation
+    export const deleteReservation = async (res, hot) => {
+      // console.log(id);
+      // console.log(postData);
+      const resp = await api.delete(`/hotels/${hot}/reservations/${res}`);
+      console.log(resp.data);
+      return resp.data;
+    }
