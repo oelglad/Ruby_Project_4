@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import LoginForm from "./LoginForm";
-import SignUpForm from "./SignUpForm";
-import Overview from './Overview';
+// import LoginForm from "./LoginForm";
+// import SignUpForm from "./SignUpForm";
+// import Overview from './Overview';
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      signUp: false,
-      currentUser: null,
-      username: "",
-      password: ""
+      // signUp: false,
+      // currentUser: null,
+      // username: "",
+      // password: ""
     };
   }
   // handleLogin = async (e, loginData) => {
@@ -27,12 +27,12 @@ class Header extends Component {
   //   });
   // };
 
-  handleBack = e => {
-    e.preventDefault();
-    this.setState({
-      signUp: false
-    });
-  };
+  // handleBack = e => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     signUp: false
+  //   });
+  // };
 
   render() {
     return (
@@ -45,13 +45,13 @@ class Header extends Component {
         :
         <div></div>
   } */}
+  <img className="logo" src="https://i.imgur.com/lrEC5HI.jpg"></img>
         <nav>
-          <div>
-            <ul>
-              <li className="left"><Link to="/home">Home</Link></li>
-              <li className="left"><Link to="/hotels/:id/reservations">Reservation</Link></li>
-              <li className="left"><Link to="/overview">Overview</Link></li>
-              <li className="left"><Link to="/hotels">Hotels</Link></li>
+              <Link to="/home">Home</Link>
+              {/* <Link to="/hotels/:id/reservations">Reservation</Link> */}
+              <Link to="/overview">Overview</Link>
+              {/* <Link to="/hotels">Hotels</Link> */}
+              <Link to="/login">Login/SignUp</Link>
               {/* {this.props.currentUser ? (
                 <div>
                   <Link to="/reservation">Reservation</Link>
@@ -84,8 +84,6 @@ class Header extends Component {
                   <div></div>
 
                 )}*/}
-            </ul>
-          </div>
         </nav> 
       </div>
     );
