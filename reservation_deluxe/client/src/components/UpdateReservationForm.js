@@ -47,7 +47,7 @@ export default class UpdateReservationForm extends Component {
           value={this.state.reservation_desc}
           onChange={this.handleChange}
         />
-        <button>Submit</button>
+        <button id="submitButton">Submit</button>
       </form>
     )
   }
