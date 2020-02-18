@@ -24,28 +24,28 @@ export default class SignUpForm extends Component {
                 {this.props.errorText && <p>{this.props.errorText}</p>}
                 <form className="SignForm" onSubmit={(e) => this.props.handleRegister(e, this.state)}>
                     <h2>SignUP</h2>
-                    <label htmlfor="name">name</label>
+                    <label htmlFor="name">name</label>
                     <input
                         type="text"
                         name="name"
                         value={this.state.name}
                         onChange={this.handleChange}
                     />
-                    <label htmlfor="email">email</label>
+                    <label htmlFor="email">email</label>
                     <input
                         type="text"
                         name="email"
                         value={this.state.email}
                         onChange={this.handleChange}
                     />
-                    <label htmlfor="password">password</label>
+                    <label htmlFor="password">password</label>
                     <input
                         type="password"
                         name="password"
                         value={this.state.password}
                         onChange={this.handleChange}
                     />
-                    <button>Submit</button>
+                    <button id="submitButton">Submit</button>
                 </form>
             </div>
         )
