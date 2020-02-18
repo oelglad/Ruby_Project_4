@@ -32,7 +32,7 @@ class HotelsController < ApplicationController
 
   def hotel_params
     # whitelist params
-    params.permit(:hotel_name)
+    params.permit(:hotel_name, :city, :state, :zip_code, :img_url )
   end
 
   def set_hotel
