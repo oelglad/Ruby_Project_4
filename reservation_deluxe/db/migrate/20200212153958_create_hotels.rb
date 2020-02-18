@@ -5,6 +5,7 @@ class CreateHotels < ActiveRecord::Migration[6.0]
       t.string :city
       t.string :state
       t.integer :zip_code
+      t.string :img_url
       t.string :created_by
 
       t.timestamps
