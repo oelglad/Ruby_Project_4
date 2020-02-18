@@ -29,7 +29,8 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.permit(:reservation_desc)
+    params.permit(:reservation_desc, :room_type, :guest_no, :start_date, :end_date)
+    
   end
 
   def set_hotel
