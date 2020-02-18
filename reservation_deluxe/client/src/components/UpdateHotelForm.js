@@ -40,14 +40,14 @@ export default class UpdateHotelForm extends Component {
         e.preventDefault();
         this.props.updateHotel(this.props.hotelId, this.state)
       }}>
-        <label htmlFor="hotel_name">Hotel</label>
+        <label className="addHotel" htmlFor="hotel_name">Hotel</label>
         <input
           type="text"
           name="hotel_name"
           value={this.state.hotel_name}
           onChange={this.handleChange}
         />
-        <button>Submit</button>
+        <button id="submitButton">Submit</button>
       </form>
     )
   }
