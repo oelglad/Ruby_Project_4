@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { indexReservations } from '../services/api_helper';
+import { Link, Route } from 'react-router-dom';
+import { indexReservations, deleteReservation, putReservation } from '../services/api_helper';
+import ReservationForm from './ReservationForm';
+
 
 export default class SingleHotel extends Component {
   constructor(props) {
@@ -9,7 +11,8 @@ export default class SingleHotel extends Component {
     this.state = {
       currentHotel: null,
       reservations: [],
-      hotel_name: ""
+      hotel_name: "",
+      test: false
 
     }
   }
@@ -19,8 +22,9 @@ export default class SingleHotel extends Component {
 
   componentDidMount = async () => {
     if (this.props.hotels.length > 0) {
-      const currentHotel = this.props.hotels.find(hotel => hotel.id === parseInt(this.props.hotelId));
-      const reservations = await indexReservations(currentHotel.id);
+      const currentHotel = this.props.hotels.find(hotel => parseInt(hotel.id) === parseInt(this.props.hotelId));
+      console.log(currentHotel);
+      const reservations = await indexReservations(this.props.hotelId);
       this.setState({ 
         reservations,
         currentHotel
@@ -35,6 +39,21 @@ export default class SingleHotel extends Component {
     }
   }
 
+  deleteRes=async(formData)=>{
+    console.log(formData)
+    let reservation_id = formData.id
+    let hotel_id = formData.hotel_id
+    console.log(reservation_id )
+    let resp = await deleteReservation(reservation_id, hotel_id )
+  }
+  updateRes=async(formData)=>{
+    console.log(formData)
+    let reservation_id = formData.id
+    let hotel_id = formData.hotel_id
+    console.log(reservation_id )
+    let resp = await putReservation(hotel_id, reservation_id, formData)
+    console.log(resp)
+  }
   componentDidUpdate(prevProps) {
     if (prevProps.hotelId !== this.props.hotelId) {
       this.setCurrentHotel();
@@ -42,16 +61,31 @@ export default class SingleHotel extends Component {
   }
 
   render() {
+    console.log(this.props);
+    console.log(this.state);
     return (
       <div>
         {this.state.currentHotel && (
           <>
             <h1>{this.state.currentHotel.hotel_name}</h1>
-            <Link to={`/hotels/${this.state.currentHotel.id}/edit`}><button>Edit</button></Link>
+            <h4>Your Reservation List </h4>
+            <Link to={`/hotels/${this.state.currentHotel.id}/Add`}>
+            </Link>
             {this.state.reservations && this.state.reservations.map(reservation =>
+            <div>
               <p>{reservation.reservation_desc}</p>
+              <button onClick={()=>this.deleteRes(reservation)}>DELETE</button>
+              <button onClick={()=> this.updateRes(reservation)}>UPDATE</button>
+              <Link to={`/hotels/${this.props.hotelId}/reservations`}>UPDATE</Link>
+              </div>
             )}
+            
+            <Link className="makeRes" to={`/hotels/${this.props.hotelId}/reservations`}>Create Reservation</Link>
+            {/* <Link className="makeRes" to={`/hotels/${this.props.hotelId}/reservations/${this.props.id}`}>Delete Reservation</Link> */}
+            
+        {/* )} /> */}
           </>
+          
         )}
       </div>
     )
