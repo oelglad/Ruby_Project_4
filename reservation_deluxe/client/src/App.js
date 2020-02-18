@@ -1,21 +1,20 @@
-import React, { Component}from 'react';
-import { registerUser, verifyUser, loginUser } from './services/api_helper';
-import { Route, Link, withRouter } from 'react-router-dom';
+import React, { Component } from 'react';
+import { registerUser, verifyUser, loginUser, postReservation } from './services/api_helper';
+import { Route, Switch, Link, withRouter } from 'react-router-dom';
 import Home from './components/Home';
 import Header from './components/Header';
 import LoginForm from './components/LoginForm';
-import Overview  from './components/Overview';
-import Reservation from './components/ReservationContainer';
+import Footer from './components/Footer';
+import Overview from './components/Overview';
 import ReservationContainer from './components/ReservationContainer';
 import HotelContainer from './components/HotelsContainer';
-// import HotelCarousel from './components/Carousel';
 import './App.css';
 import SignUpForm from './components/SignUpForm';
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       name: "",
       email: "",
       password: "",
@@ -24,23 +23,23 @@ class App extends Component {
     }
   }
 
-  handleRegister = async (e,  registerData) => {
+  handleRegister = async (e, registerData) => {
     e.preventDefault();
     const currentUser = await registerUser(registerData);
     console.log(currentUser)
-  if (!currentUser.errorMessage){
-    this.setState({ currentUser});
-    // this.props.history.push('/reservations');
-  } else {
-    this.setState({errorText: currentUser.errorMessage})
-  }
+    if (!currentUser.errorMessage) {
+      this.setState({ currentUser });
+      this.props.history.push('/hotels');
+    } else {
+      this.setState({ errorText: currentUser.errorMessage })
+    }
   }
 
   handleLogin = async (e, loginData) => {
     e.preventDefault();
     const currentUser = await loginUser(loginData);
     this.setState({ currentUser });
-    // this.props.history.push('/reservations');
+    this.props.history.push('/hotels');
   }
 
   handleLogout = () => {
@@ -57,50 +56,66 @@ class App extends Component {
     if (localStorage.getItem('authToken')) {
       const name = localStorage.getItem('name');
       const email = localStorage.getItem('email');
-      const user = {name, email};
+      const user = { name, email };
+      console.log(user);
       user && this.setState({
         currentUser: user
+
       })
     }
   }
-  render(){
-  return (
-    <div className="App">
-        {this.state.currentUser ?
-          <div>
-            <h1>Hello, {this.state.currentUser.name}</h1>
-            <button onClick={this.handleLogout}>Logout</button>
-          </div>
-          :
-          <nav>
-            <Link to="/signup">SignUp</Link>
-          </nav>
-        }
-        <Route path="/login" render={() => (
-          <LoginForm
-          handleLogin={this.handleLogin}
-          />
-        )} />
-        <Route path="/signup" render={() => (
-          <SignUpForm
-          handleRegister={this.handleRegister}
-          errorText={this.state.errorText}
-          />
-        )} />
-        <Header
-         currentUser={this.state.currentUser}
-         handleLogout={this.handleLogout}
-         handleLogin={this.handleLogin}
-         />
-        <Route path="/overview" render={() => (<Overview />)} />
-        <Route path="/reservation"  render={() => (<ReservationContainer />)} />
-        <Route path="/hotels" render={() => (<HotelContainer />)} />
-        {/* <Route path="/hotels" render={() => (<ReservationContainer />)} /> */}
-        <Route path="/hotels" render={() => (<Home />)} />
-        {/* <HotelCarousel />  */}
 
-    </div>
-  );
-}
+  // createReservation = async (id, reservationData) => {
+  //   // console.log(reservationData);
+  //   const newReservation = await postReservation(id, reservationData);
+  //   this.setState({
+  //     reservations: [...this.state.reservations, newReservation]
+  //   })
+  //   this.props.history.push("/hotels/:id/reservations");
+  // }
+
+  render() {
+
+    return (
+
+      <div className="App">
+        <>
+          <Header />
+
+          <Route path="/home" render={() => (<Home />)} />
+          <Route path="/login" render={() => (
+            <LoginForm
+              handleLogin={this.handleLogin}
+            />
+          )} />
+          {this.state.currentUser ?
+            <div>
+              <h3>Hello, {this.state.currentUser.name}</h3>
+              <button onClick={this.handleLogout} id="logoutButton">Logout</button>
+              <Link className="addHotel" to="/hotels">Hotels</Link>
+              <Route path="/hotels" render={() => (<HotelContainer />)} />
+              <ReservationContainer />
+            </div>
+            :
+            <div>
+              <Route path="/signup" render={() => (
+                <SignUpForm
+                  handleRegister={this.handleRegister}
+                  errorText={this.state.errorText}
+                />
+              )} />
+            </div>
+          }
+          {/* <Route path="/overview" render={() => (<Overview />)} /> */}
+          {/* <Route path="/hotels/:id/reservations" render={() => (
+            <ReservationForm
+              createReservation={this.createReservation}
+            />)} /> */}
+          <Overview />
+          <Footer />
+        </>
+      </div>
+    );
+  }
 }
 export default withRouter(App);
