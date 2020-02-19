@@ -3,12 +3,10 @@
   text-align: center;
 } */
 body{
-  /* background-color: gray; */
-    margin: 0;
+    margin: 15px;
     padding: 0;
 }
 .header{
-  /* background-color: rgba(63, 10, 3, 0.966); */
   background-color: #191919;
   height: 10.5em;
 }
@@ -38,13 +36,13 @@ label{
   text-align: center;
 }
 #logoutButton{
-  background-color:white ;
+  background-color:#926F34;
   color: black;
   text-align: center;
   font-family: fantasy;
   display: inline-block;
   font-size: 16px;
-  float:right;
+  float: right;
   border: solid black;
 }
 #submitButton{
@@ -68,6 +66,7 @@ label{
   /* border-top: 1px solid darkgray; */
   max-width: 1300px;
   margin: 30px auto;
+  border: solid black;
  }
 #overview {
   position: relative;
@@ -78,10 +77,21 @@ label{
 }
 .addHotel{
   color:black;
+  text-align: left;
+  font-size: 2em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #overview-mobile {
   position: relative;
   top: -45px;
+}
+.addHotelButton{
+  width: 100px;
+  height: 50px;
+  font-size: .4em;
+  color: black;
+  border: solid black;
+  background-color: #926F34;
 }
 .p4 {
   font-family: "Avenir-Book";
@@ -105,11 +115,15 @@ label{
   height: 250px;
  justify-content: center;
 }
+h1{
+  color: black;
+  text-align: center;
+  margin-top: 80px;
+  
+}
 .reservationForm{
   display: flex;
   border-radius: .3em;
-  /* margin-left: auto;
-  margin-right: auto; */
   flex-direction: column;
   /* box-sizing: border-box; */
   background-color: #191919;
@@ -131,17 +145,27 @@ label{
   text-align: center;
   border-radius: 5px;
   align-items: center;
+  color: black;
 }
 .hotelContainer{
   display: flex;
   flex-direction: column;
   margin: 10px;
-  width: 300px;
+  width: 350px;
   height: 500px;
-  padding: 20px;
+  /* padding: 20px; */
+  color: #926F34;
   justify-content: center;
-  background-color:rgba(63, 10, 3, 0.966);
-
+ /* background-color:rgba(63, 10, 3, 0.966); */
+ border: solid black;
+ background-color: #281500;
+}
+p{
+  color: #926F34;
+}
+.hotellName{
+  color: #926F34;
+  font-size: 1em;;
 }
 
 .leftSide {
@@ -180,7 +204,7 @@ color: #926F34;
 h3{
   text-align: right;
   font-family: cursive;
-  font-size: 2e;
+  font-size: 2em;
 }
 .rightSide{
   font-size: 16px;
@@ -192,16 +216,16 @@ h3{
 }
 .p3 {
   font-family: "Avenir-Book";
-  font-size: 26px;
+  font-size: 20px;
   line-height: 40px;
+  padding:10px;
   
 }
 
 
 .carousel img {
-  /* margin: 60px;
-  height: 80vh; */
   object-fit: cover;
+  height: 600px;
 }
 
 footer {
@@ -262,7 +286,7 @@ p1{
  
 }
 .imgClass{
-  width: 536px;
+  width: 436px;
   height: 700px;
 }
 

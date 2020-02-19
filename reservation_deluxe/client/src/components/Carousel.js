@@ -9,6 +9,9 @@ import { Carousel } from 'react-responsive-carousel';
     return (
       <Carousel showThumbs={false} infiniteLoop={true} emulateTouch showStatus={false} swipeable={true} autoPlay={true} dynamicHeight={true} useKeyboardArrows={true} centerMode={false} transitionTime={300}>
         <div className="carousel-img">
+          <img src="https://i.imgur.com/Fpv3xwr.jpg" alt="hotel1" />
+        </div>
+        <div className="carousel-img">
           <img src="https://i.imgur.com/0XgueCm.jpg" alt="hotel1" />
         </div>
         <div className="carousel-img">

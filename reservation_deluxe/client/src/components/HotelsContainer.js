@@ -41,14 +41,6 @@ class HotelContainer extends Component {
     this.props.history.push("/hotels");
   }
 
-  // updateHotel = async (id, hotelData) => {
-  //   const updatedHotel = await putHotel(id, hotelData);
-  //   const changedHotels = this.state.hotels.map(hotel => parseInt(hotel.id) === parseInt(id) ? updatedHotel : hotel);
-  //   console.log(changedHotels);
-  //   this.setState({ hotels: changedHotels });
-  //   this.props.history.push("/hotels");
-  // }
-
   render() {
     return (
       <div>

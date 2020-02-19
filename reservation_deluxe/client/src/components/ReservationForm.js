@@ -63,7 +63,6 @@ export default class ReservationForm extends Component {
           value={this.state.end_date}
           onChange={this.handleChange}
         />
-          {/* <button onClick={()=> this.props.updateRes(reservation)}>UPDATE</button> */}
         <button id="submitButton">Submit</button>
       </form>
     )

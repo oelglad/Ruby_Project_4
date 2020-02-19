@@ -12,20 +12,18 @@ export default class CreateHotelList extends Component {
     console.log(this.props.hotels)
     return (
       <div>
-        <Link className="addHotel" to="/hotels/new"><button>Add a Hotel To Your List</button></Link>
+        <Link className="addHotel" to="/hotels/new"><button className="addHotelButton">Add a Hotel To Your List</button></Link>
         <div id="hotel-display">
 
           {this.props.hotels && this.props.hotels.map(hotel => (
             <div key={hotel.id} className="hotelContainer">
               <Link to={`/hotels/${hotel.id}`}>
                 <img className="HotelImg" src={hotel.img_url}></img>
-
-                {hotel.hotel_name}
+                <p className="hotellName">{hotel.hotel_name}</p>
                 <Link to={`/hotels/${hotel.id}/reservations`}></Link>
+                {/* <p>{hotel.biography}</p> */}
+                <p>{hotel.city}, {hotel.state}, {hotel.zip_code}</p>
               </Link>
-              <p>{hotel.biography}</p>
-              <p>{hotel.city}, {hotel.state}, {hotel.zip_code}</p>
-
             </div>
           ))}
         </div>

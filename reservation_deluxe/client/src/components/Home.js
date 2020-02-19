@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import {Route, Link } from 'react-router-dom';
 import HotelCarousel from './Carousel';
+import HotelContainer from './HotelsContainer';
 
 
 class Home extends Component {
@@ -13,6 +15,8 @@ class Home extends Component {
     return (
         <div>
             <HotelCarousel />
+            {/* <Route path="/hotels" render={() => (<HotelContainer />)} /> */}
+            <Link className="addHotel" to="/hotels">Hotels</Link>
         </div>
         
     );

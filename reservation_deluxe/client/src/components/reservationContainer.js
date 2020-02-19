@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import { indexReservations, postReservation, putReservation, verifyUser } from '../services/api_helper';
-import SingleReservation from './SingleReservation';
 import ReservationForm from './ReservationForm';
-import UpdateReservationForm from './UpdateReservationForm';
+
 
 
 class ReservationContainer extends Component {
@@ -62,12 +61,12 @@ class ReservationContainer extends Component {
     console.log(this.props);
     return (
       <div>
-        <Route exact path="/hotels/:id/reservations/:id" render={(props) => (
+        {/* <Route exact path="/hotels/:id/reservations/:id" render={(props) => (
           <SingleReservation
             reservationId={props.match.params.id}
             reservations={this.state.reservations}
           />
-        )} />
+        )} /> */}
         <Route path="/hotels/:id/reservations" render={(props) => (
           <ReservationForm
             createReservation={this.createReservation}
@@ -80,13 +79,13 @@ class ReservationContainer extends Component {
             hotelId={props.match.params.id}
           />
         )} />
-        <Route path="/hotels/:id/reservations/:id/edit" render={(props) => (
+        {/* <Route path="/hotels/:id/reservations/:id/edit" render={(props) => (
           <UpdateReservationForm
             hotels={this.state.reservations}
             updateReservations={this.updateReservation}
             reservationsId={props.match.params.id}
           />
-        )} />
+        )} /> */}
       </div>
     )
   }

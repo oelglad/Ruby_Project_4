@@ -29,7 +29,7 @@ export default class HotelForm extends Component {
         e.preventDefault();
         this.props.createHotel(this.state)
       }}>
-        <label className="addHotel" htmlFor="hotel_name">Hotel</label>
+        <label htmlFor="hotel_name">Hotel name</label>
         <input
           type="text"
           name="hotel_name"
