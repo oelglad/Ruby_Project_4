@@ -5,7 +5,6 @@ function Footer(props) {
     <footer>
       <div className="footer-img">
       <img className="logo2" src="https://i.imgur.com/lrEC5HI.jpg"/>
-      <p1>Tayran</p1> 
       </div>
       <div className="copyright">
         <p className="p4">©2020 The Tayaran</p>

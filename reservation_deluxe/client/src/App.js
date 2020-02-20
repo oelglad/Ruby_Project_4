@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { registerUser, verifyUser, loginUser } from './services/api_helper';
+import { registerUser, verifyUser, loginUser, putReservation } from './services/api_helper';
 import { Route, Link, Switch, withRouter } from 'react-router-dom';
 import Home from './components/Home';
 import Header from './components/Header';
@@ -10,6 +10,7 @@ import ReservationContainer from './components/ReservationContainer';
 import HotelContainer from './components/HotelsContainer';
 import './App.css';
 import SignUpForm from './components/SignUpForm';
+import UpdateReservationForm from './components/UpdateReservationForm';
 
 class App extends Component {
   constructor(props) {
@@ -26,12 +27,11 @@ class App extends Component {
   handleRegister = async (e, registerData) => {
     e.preventDefault();
     const currentUser = await registerUser(registerData);
-    console.log(currentUser)
     if (!currentUser.errorMessage) {
       this.setState({ currentUser });
       this.props.history.push('/hotels');
-    }
-    // } else {
+    } 
+    // else {
     //   this.setState({ errorText: currentUser.errorMessage })
     // }
   }
@@ -58,13 +58,18 @@ class App extends Component {
       const name = localStorage.getItem('name');
       const email = localStorage.getItem('email');
       const user = { name, email };
-      console.log(user);
       user && this.setState({
         currentUser: user
 
       })
     }
   }
+
+  updateRes = async (hotel_id, reservation_id, formData) => {
+    console.log(reservation_id)
+    let resp = await putReservation(hotel_id, reservation_id, formData)
+  }
+
   render() {
 
     return (
@@ -76,19 +81,15 @@ class App extends Component {
             <LoginForm
               handleLogin={this.handleLogin}
             />
-          )} />          
-          {/* <Route path="/" render={() => (<Home />)} /> */}
-          {/* <Route path="/login" render={() => (
-            <LoginForm
-              handleLogin={this.handleLogin}
-            />
-          )} /> */}
+          )} />
           {this.state.currentUser ?
             <div>
-              <h3>Hello, {this.state.currentUser.name}</h3>
+              <h3>Hello, 
+              {this.state.currentUser.name} 
               <button onClick={this.handleLogout} id="logoutButton">Logout</button>
-              <Link className="addHotel" to="/hotels">Hotels</Link>
-              {/* <Route path="/" render={() => (<Home />)} /> */}
+              </h3>
+              {/* <button onClick={this.handleLogout} id="logoutButton">Logout</button> */}
+              <Link className="addHotelList" to="/hotels">Your Hotel List</Link>
               <Route path="/hotels" render={() => (<HotelContainer />)} />
               <ReservationContainer />
             </div>
@@ -102,11 +103,19 @@ class App extends Component {
               )} />
             </div>
           }
-          {/* <Route path="/overview" render={() => (<Overview />)} /> */}
+          <Route path="/overview" render={() => (<Overview />)} />
           {/* <Route path="/hotels/:id/reservations" render={() => (
             <ReservationForm
               createReservation={this.createReservation}
             />)} /> */}
+          <Route exact path={`/hotels/:hotel_id/reservations/:res_id`}
+            render={(props) => <UpdateReservationForm
+              hotelId={props.match.params.hotel_id}
+              resId={props.match.params.res_id}
+              updateRes={this.updateRes}
+
+            />}
+          />
           <Route path="/" render={() => (<Home />)} />
           <Overview />
           <Footer />

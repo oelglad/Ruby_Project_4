@@ -23,7 +23,6 @@ export default class SingleHotel extends Component {
   componentDidMount = async () => {
     if (this.props.hotels.length > 0) {
       const currentHotel = this.props.hotels.find(hotel => parseInt(hotel.id) === parseInt(this.props.hotelId));
-      console.log(currentHotel);
       const reservations = await indexReservations(this.props.hotelId);
       this.setState({
         reservations,
@@ -40,14 +39,12 @@ export default class SingleHotel extends Component {
   }
 
   deleteRes = async (formData) => {
-    console.log(formData)
     let reservation_id = formData.id
     let hotel_id = formData.hotel_id
     console.log(reservation_id)
     let resp = await deleteReservation(reservation_id, hotel_id)
   }
   updateRes = async (formData) => {
-    console.log(formData)
     let reservation_id = formData.id
     let hotel_id = formData.hotel_id
     console.log(reservation_id)
@@ -61,7 +58,7 @@ export default class SingleHotel extends Component {
 
   render() {
     console.log(this.props);
-    console.log(this.state);
+    console.log(this.state.reservations);
     return (
       <div>
         {this.state.currentHotel && (
@@ -71,24 +68,26 @@ export default class SingleHotel extends Component {
             <Link to={`/hotels/${this.state.currentHotel.id}/Add`}>
             </Link>
             {this.state.reservations && this.state.reservations.map(reservation =>
-              <div>
+              <div className="resMetods">
                 <p>{reservation.reservation_desc}</p>
                 <button onClick={() => this.deleteRes(reservation)}>DELETE</button>
                 {/* <a className="updateRes" href={`/hotels/${this.props.hotelId}/reservations`}> */}
                 {/* <button onClick={()=> this.updateRes(reservation)}>UPDATE</button> */}
                 {/* </a> */}
                 {/* <Link to={`/hotels/${this.props.hotelId}/reservations`}>UPDATE</Link> */}
-                {/* <Link className="makeRes" to={`/hotels/${this.props.hotelId}/reservations`}>Update Reservation */}
+                {/* <Link className="makeRes" to={`/hotels/${this.props.hotelId}/reservations/${reservation.id}`}>Update Reservation</Link> */}
                <button onClick={() => this.updateRes(reservation)}>
-                 <Link className="makeRes" to={`/hotels/${this.props.hotelId}/reservations/${reservation.reservation_id}`}>Update Reservation</Link></button>
+                 <Link className="makeRes" to={`/hotels/${this.props.hotelId}/reservations/${reservation.id}`}>Update Reservation</Link>
+                 </button>
+                 {/* UpdateReservationForm  */}
                {/* </Link> */}
               </div>
             )}
-
+            
+             {/* <button onClick={() => this.props.createReservation(this.hotel_id, this.props.state)}> */}
             <Link className="makeRes" to={`/hotels/${this.props.hotelId}/reservations`}>Create Reservation</Link>
             {/* <Link className="makeRes" to={`/hotels/${this.props.hotelId}/reservations/${this.props.id}`}>Delete Reservation</Link> */}
-
-            {/* )} /> */}
+              {/* </button> */}
           </>
 
         )}

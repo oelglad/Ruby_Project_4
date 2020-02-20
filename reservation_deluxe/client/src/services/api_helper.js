@@ -68,7 +68,7 @@ export const loginUser = async (loginData) => {
   // Get All reservations
   export const indexReservations = async (id) => {
     const resp = await api.get(`/hotels/${id}/reservations`);
-    console.log(resp.data);
+    // console.log(resp.data);
     return resp.data;
   }
   

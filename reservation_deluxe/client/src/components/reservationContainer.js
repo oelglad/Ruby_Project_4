@@ -58,7 +58,7 @@ class ReservationContainer extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
         {/* <Route exact path="/hotels/:id/reservations/:id" render={(props) => (
@@ -67,18 +67,18 @@ class ReservationContainer extends Component {
             reservations={this.state.reservations}
           />
         )} /> */}
-        <Route path="/hotels/:id/reservations" render={(props) => (
+        <Route exact path="/hotels/:id/reservations" render={(props) => (
           <ReservationForm
             createReservation={this.createReservation}
             hotelId={props.match.params.id}
           />
         )} />
-          <Route path="/hotels/:id/reservations/:id" render={(props) => (
+          {/* <Route path="/hotels/:id/reservations/:id" render={(props) => (
           <ReservationForm
           deleteReservation={this.deleteReservation}
             hotelId={props.match.params.id}
           />
-        )} />
+        )} /> */}
         {/* <Route path="/hotels/:id/reservations/:id/edit" render={(props) => (
           <UpdateReservationForm
             hotels={this.state.reservations}

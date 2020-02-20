@@ -14,9 +14,10 @@ class Home extends Component {
   render() {
     return (
         <div>
+          {/* <h1>{this.state.props.currentHotel.hotel_name}</h1> */}
             <HotelCarousel />
             {/* <Route path="/hotels" render={() => (<HotelContainer />)} /> */}
-            <Link className="addHotel" to="/hotels">Hotels</Link>
+            {/* <HotelContainer /> */}
         </div>
         
     );

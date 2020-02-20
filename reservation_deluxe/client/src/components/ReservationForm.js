@@ -22,6 +22,7 @@ export default class ReservationForm extends Component {
 
   render() {
     console.log(this.props);
+    console.log("this is the reservation form")
     return (
       <form className="reservationForm" onSubmit={(e) => {
         e.preventDefault();

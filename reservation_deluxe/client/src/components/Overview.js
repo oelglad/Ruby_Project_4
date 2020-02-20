@@ -10,7 +10,7 @@ const Overview = () => {
         </div>
         <div className="rightSide">
           <p className="p3">
-            Tyaran has been Established in 1990, built in three locations namely Cairo in Egypt, Rome in Italy
+            Tayran has been Established in 1990, built in three locations namely Cairo in Egypt, Rome in Italy
             and NYC in USA, helping our customers to get the best hotel reservation by focusing on
             quality, luxurious yet affordable.
           </p>
