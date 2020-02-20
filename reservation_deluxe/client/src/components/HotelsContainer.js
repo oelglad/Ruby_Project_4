@@ -23,7 +23,7 @@ class HotelContainer extends Component {
   }
 
   componentDidMount() {
-    verifyUser();
+     verifyUser();
     this.getAllHotels();
   }
 

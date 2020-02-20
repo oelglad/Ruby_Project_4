@@ -57,8 +57,8 @@ export default class SingleHotel extends Component {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.state.reservations);
+    // console.log(this.props);
+    // console.log(this.state.reservations);
     return (
       <div>
         {this.state.currentHotel && (

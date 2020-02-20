@@ -90,7 +90,7 @@ class App extends Component {
               </h3>
               {/* <button onClick={this.handleLogout} id="logoutButton">Logout</button> */}
               <Link className="addHotelList" to="/hotels">Your Hotel List</Link>
-              <Route path="/hotels" render={() => (<HotelContainer />)} />
+              {/* <Route path="/hotels" render={() => (<HotelContainer />)} /> */}
               <ReservationContainer />
             </div>
             :
@@ -103,7 +103,7 @@ class App extends Component {
               )} />
             </div>
           }
-          <Route path="/overview" render={() => (<Overview />)} />
+          {/* <Route path="/overview" render={() => (<Overview />)} /> */}
           {/* <Route path="/hotels/:id/reservations" render={() => (
             <ReservationForm
               createReservation={this.createReservation}
@@ -116,7 +116,8 @@ class App extends Component {
 
             />}
           />
-          <Route path="/" render={() => (<Home />)} />
+          <Route path="/home" render={() => (<Home />)} />
+          <Route path="/hotels" render={() => (<HotelContainer />)} />
           <Overview />
           <Footer />
         </>

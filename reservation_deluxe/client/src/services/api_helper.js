@@ -46,7 +46,7 @@ export const loginUser = async (loginData) => {
     // Get All hotels
     export const indexHotels = async () => {
       const resp = await api.get('/hotels');  
-      // console.log(resp)
+      console.log(resp)
       return resp.data;
     }
     

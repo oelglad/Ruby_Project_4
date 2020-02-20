@@ -144,6 +144,13 @@ h1{
   margin-right: auto;
   padding : 20px;
 }
+.HotelImgH{
+  width: 200px;
+  height: 250px;
+ justify-content: center;
+ margin-left: auto;
+ margin-right: auto;
+}
 .reservationForm{
   display: flex;
   margin-left: auto;
