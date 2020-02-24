@@ -336,7 +336,7 @@ a:hover {
     transform: rotate(360deg);
   }
 } */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
   .App { 
     overflow-x: hidden;
   }
