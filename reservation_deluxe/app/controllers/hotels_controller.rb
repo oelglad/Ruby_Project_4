@@ -1,6 +1,7 @@
 class HotelsController < ApplicationController
   before_action :set_hotel, only: [:show, :update, :destroy]
-  before_action :authorize_request, except: :index
+  # before_action :authorize_request, except: :index
+  skip_before_action :authorize_request, only: [:index]
 
   def index
     # if you want all the hotels to show up for ALL users, change line 6 vs 7
