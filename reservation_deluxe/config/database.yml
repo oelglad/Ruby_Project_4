@@ -36,11 +36,6 @@
 #   gem 'sqlite3'
 #
 
-
-
-
-
-
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -53,7 +48,6 @@ default: &default
 
 development:
   <<: *default
-  database: db/development.sqlite3
   adapter: postgresql
   encoding: unicode
   database: mydb
